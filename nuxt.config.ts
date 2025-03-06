@@ -9,10 +9,10 @@ export default defineNuxtConfig({
   },
 
   app: {
-    rootAttrs: {
-      lang: "en",
-    },
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       title: "Alfatta Rezqa",
       meta: [
         {
