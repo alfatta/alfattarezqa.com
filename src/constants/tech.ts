@@ -1,0 +1,15 @@
+export const techStacks = [
+  { img: "/img/tech-stack/vue.svg", title: "Vue.js" },
+  { img: "/img/tech-stack/nuxt.svg", title: "Nuxt" },
+  { img: "/img/tech-stack/react.svg", title: "React" },
+  { img: "/img/tech-stack/flutter.svg", title: "Flutter" },
+  { img: "/img/tech-stack/nest.svg", title: "Nest" },
+  { img: "/img/tech-stack/express.svg", title: "Express" },
+  { img: "/img/tech-stack/postgresql.svg", title: "PostgreSQL" },
+  { img: "/img/tech-stack/mysql.svg", title: "MySQL" },
+  { img: "/img/tech-stack/mongodb.svg", title: "MongoDB" },
+  { img: "/img/tech-stack/redis.svg", title: "Redis" },
+  { img: "/img/tech-stack/sqlite.svg", title: "SQLite" },
+  { img: "/img/tech-stack/docker.svg", title: "Docker" },
+  { img: "/img/tech-stack/git.svg", title: "Git" },
+];
