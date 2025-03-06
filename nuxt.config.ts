@@ -9,8 +9,18 @@ export default defineNuxtConfig({
   },
 
   app: {
+    rootAttrs: {
+      lang: "en",
+    },
     head: {
       title: "Alfatta Rezqa",
+      meta: [
+        {
+          name: "description",
+          content:
+            "Alfatta Rezqa is highly motivated software developer with >7 years of experience in designing and implementing software solutions. He's dedicated to build high-quality software.",
+        },
+      ],
     },
   },
 
