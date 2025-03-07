@@ -1,3 +1,5 @@
+import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
@@ -126,27 +128,22 @@ export default defineNuxtConfig({
     dirs: ["./constants"],
   },
 
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/google-fonts",
-    "@nuxtjs/sitemap",
-    "@nuxt/content",
-  ],
+  css: ["~/assets/css/main.css"],
 
-  tailwindcss: {
-    viewer: false,
-    config: {
-      theme: {
-        fontFamily: {
-          sans: ["IBM Plex Sans", "sans-serif"],
-        },
-      },
-    },
+  modules: ["@nuxtjs/sitemap"],
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 
-  googleFonts: {
-    families: {
-      "IBM Plex Sans": "100..700",
-    },
-  },
+  // tailwindcss: {
+  //   viewer: false,
+  //   config: {
+  //     theme: {
+  //       fontFamily: {
+  //         sans: ["IBM Plex Sans", "sans-serif"],
+  //       },
+  //     },
+  //   },
+  // },
 });
