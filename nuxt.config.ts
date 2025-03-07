@@ -119,7 +119,7 @@ export default defineNuxtConfig({
     dirs: ["./constants"],
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxtjs/sitemap"],
 
   tailwindcss: {
     viewer: false,
