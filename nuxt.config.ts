@@ -112,6 +112,13 @@ export default defineNuxtConfig({
             "Alfatta Rezqa is highly motivated software developer with >7 years of experience in designing and implementing software solutions. He's dedicated to build high-quality software.",
         },
       ],
+      script: [
+        {
+          src: "https://cloud.umami.is/script.js",
+          defer: "true",
+          "data-website-id": "55da3b97-d37c-4a1c-b3d2-44a2d037e213",
+        },
+      ],
     },
   },
 
