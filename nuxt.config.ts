@@ -82,8 +82,8 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/png",
-          href: "/img/favicon-128.png",
-          sizes: "128",
+          href: "/img/favicon-128x128.png",
+          sizes: "128x128",
         },
       ],
       meta: [
@@ -126,7 +126,12 @@ export default defineNuxtConfig({
     dirs: ["./constants"],
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/google-fonts", "@nuxtjs/sitemap"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/sitemap",
+    "@nuxt/content",
+  ],
 
   tailwindcss: {
     viewer: false,
