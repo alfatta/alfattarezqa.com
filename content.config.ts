@@ -11,6 +11,7 @@ export default defineContentConfig({
       },
       schema: z.object({
         image: z.string(),
+        imageThumbnail: z.string(),
         date: z.date(),
         lastUpdate: z.date(),
       }),
