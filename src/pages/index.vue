@@ -1,5 +1,14 @@
+<script setup lang="ts">
+const { data: blogs } = await useAsyncData(() => {
+  return queryCollection('blog')
+    .order('date', 'DESC')
+    .limit(3)
+    .all()
+})
+</script>
+
 <template>
-  <main>
+  <main class="mt-16">
     <p class="text-slate-500 mt-8">
       Highly motivated software developer with >7 years of experience in designing and implementing software
       solutions. Dedicated to build high-quality software.
@@ -7,7 +16,7 @@
 
     <Section title="Tech Stack">
       <div class="flex gap-1.5 flex-wrap">
-        <img v-for="({ img, title }, i) in techStacks" :key="i" :src="img" :alt="title"
+        <img v-for="({ img, title }, i) in techStacks" :key="i" :src="img" :alt="title" width="40" height="40"
           class="h-10 w-10 grayscale hover:grayscale-0 duration-300 transition-all cursor-pointer" />
       </div>
     </Section>
@@ -26,11 +35,19 @@
       </ul>
     </Section>
 
-    <!-- <Section title="Blog">
-      </Section> -->
+    <Section title="Latest Blog">
+      <template #action>
+        <NuxtLink to="/blog" class="text-xs text-slate-500 hover:text-slate-600">
+          See More →
+        </NuxtLink>
+      </template>
+      <div class="space-y-4">
+        <CardBlog v-for="(blog, i) in blogs" :key="i" :data="blog" />
+      </div>
+    </Section>
 
     <Section title="Contact">
-      <div class="flex gap-1.5">
+      <div class="flex gap-3">
         <a href="https://linkedin.com/in/alfattarezqa" target="_blank"
           class="rounded-full bg-slate-200 hover:bg-slate-400 px-4 py-1 text-sm duration-300 transition-all">
           LinkedIn
@@ -49,9 +66,5 @@
         </a>
       </div>
     </Section>
-
-    <Divider />
-
-    <p class="text-slate-500 text-sm">&copy; {{ new Date().getFullYear() }} Alfatta Rezqa.</p>
   </main>
 </template>

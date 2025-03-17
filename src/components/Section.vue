@@ -6,8 +6,8 @@ defineProps<{
 
 <template>
   <section class="mt-12">
-    <div class="flex justify-between items-center">
-      <h2 v-if="title" class="mb-4 font-medium text-lg">
+    <div class="flex justify-between items-center mb-4">
+      <h2 v-if="title" class="font-medium text-lg">
         {{ title }}
       </h2>
       <slot name="action"></slot>

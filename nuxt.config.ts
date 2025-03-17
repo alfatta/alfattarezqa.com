@@ -15,7 +15,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
-      title: "Alfatta Rezqa",
       link: [
         {
           rel: "apple-touch-icon-precomposed",
@@ -130,20 +129,19 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: ["@nuxtjs/sitemap"],
+  modules: ["@nuxtjs/sitemap", "@nuxt/content"],
 
   vite: {
     plugins: [tailwindcss()],
   },
 
-  // tailwindcss: {
-  //   viewer: false,
-  //   config: {
-  //     theme: {
-  //       fontFamily: {
-  //         sans: ["IBM Plex Sans", "sans-serif"],
-  //       },
-  //     },
-  //   },
-  // },
+  content: {
+    build: {
+      markdown: {
+        remarkPlugins: {
+          "remark-reading-time": {},
+        },
+      },
+    },
+  },
 });
