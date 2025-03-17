@@ -26,7 +26,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: ["@nuxtjs/sitemap", "@nuxt/content"],
+  modules: ["@nuxtjs/robots", "@nuxtjs/sitemap", "@nuxt/content"],
 
   vite: {
     plugins: [tailwindcss()],
@@ -40,5 +40,10 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+
+  robots: {
+    blockNonSeoBots: true,
+    blockAiBots: true,
   },
 });
