@@ -17,7 +17,8 @@ useHead({
     { rel: "icon", href: "/favicon.ico" },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-    { rel: "preload", href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" },
+    { rel: "preload", href: "https://fonts.gstatic.com/s/ibmplexsans/v21/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2", crossorigin: "" },
+    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" },
   ],
   script: [
     {
