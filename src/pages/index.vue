@@ -10,8 +10,8 @@ const { data: blogs } = await useAsyncData(() => {
 <template>
   <main class="mt-16">
     <p class="text-slate-500 mt-8">
-      Highly motivated software developer with >7 years of experience in designing and implementing software
-      solutions. Dedicated to build high-quality software.
+      Highly motivated software developer with +7 years of experience in designing and implementing software solutions
+      with dedication to build high-quality software
     </p>
 
     <Section title="Tech Stack">
