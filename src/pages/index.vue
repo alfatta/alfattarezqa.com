@@ -24,7 +24,7 @@ const { data: blogs } = await useAsyncData(() => {
     <Section title="Work Experience">
       <ul class="space-y-4">
         <li
-          class="flex justify-between text-slate-500 rounded-xl border border-slate-200 px-4 py-4 cursor-pointer hover:bg-slate-50 duration-300 transition-all"
+          class="sm:flex sm:justify-between text-slate-500 rounded-xl border border-slate-200 px-4 py-4 cursor-pointer hover:bg-slate-50 duration-300 transition-all"
           v-for="({ title, company, date }, i) in workExperiences" :key="i">
           <div>
             <p>{{ title }}</p>
