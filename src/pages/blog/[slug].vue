@@ -26,6 +26,7 @@ const postTime = computed(() => {
 useSeoMeta({
   title: data.value?.title,
   description: data.value?.description,
+  articleModifiedTime: dayjs(data.value?.lastUpdate).toISOString(),
 })
 </script>
 

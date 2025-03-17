@@ -10,7 +10,15 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  site: { url: "alfattarezqa.com" },
+  site: { url: "alfattarezqa.com", name: "Alfatta Rezqa - Software Developer" },
+
+  sitemap: {
+    defaults: {
+      lastmod: new Date().toISOString(),
+      priority: 0.5,
+      changefreq: "weekly",
+    },
+  },
 
   imports: {
     dirs: ["./constants"],
