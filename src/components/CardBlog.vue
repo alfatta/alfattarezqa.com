@@ -20,7 +20,7 @@ const postTime = computed(() => {
 <template>
   <NuxtLink :to="data.path"
     class="flex items-start group gap-4 text-slate-500 rounded-xl border border-slate-200 px-4 py-4 cursor-pointer hover:bg-slate-50 duration-300 transition-all">
-    <img :src="data.image"
+    <img :src="data.image" :alt="data.title" :title="data.title"
       class="h-20 w-20 rounded object-cover grayscale group-hover:grayscale-0 pointer-coarse:grayscale-0" />
     <div class="space-y-1.5">
       <p>{{ data.title }}</p>
