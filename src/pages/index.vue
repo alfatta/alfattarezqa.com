@@ -5,13 +5,17 @@ const { data: blogs } = await useAsyncData(() => {
     .limit(3)
     .all()
 })
+const description = "Highly motivated software developer with +7 years of experience in designing and implementing software solutions with dedication to build high-quality software"
+
+useSeoMeta({
+  description
+})
 </script>
 
 <template>
   <main class="mt-16">
     <p class="text-slate-500 mt-8">
-      Highly motivated software developer with +7 years of experience in designing and implementing software solutions
-      with dedication to build high-quality software
+      {{ description }}
     </p>
 
     <Section title="Tech Stack">
