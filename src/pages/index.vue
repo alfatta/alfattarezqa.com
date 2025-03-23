@@ -5,17 +5,27 @@ const { data: blogs } = await useAsyncData(() => {
     .limit(3)
     .all()
 })
-const description = "Highly motivated software developer with +7 years of experience in designing and implementing software solutions with dedication to build high-quality software"
 
 useSeoMeta({
-  description
+  description: ABOUT.DESCRIPTION
+})
+
+defineOgImageComponent('Base', {
+  title: 'Alfatta Rezqa',
+  description: 'Software Developer',
+  ogTitle: ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
+  ogDescription: ABOUT.DESCRIPTION,
+  twitterTitle:  ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
+  twitterDescription: ABOUT.DESCRIPTION,
+  twitterCreator: '@alfattarezqa',
+  twitterCard: 'summary_large_image',
 })
 </script>
 
 <template>
   <main class="mt-16">
     <p class="text-slate-500 mt-8">
-      {{ description }}
+      {{ ABOUT.DESCRIPTION }}
     </p>
 
     <Section title="Tech Stack">

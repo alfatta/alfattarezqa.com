@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  titleTemplate: (t?: string) => t ? `${t} - Alfatta Rezqa` : 'Alfatta Rezqa - Software Developer',
+  titleTemplate: (page?: string) => page ? `${page} - ${ABOUT.NAME}` : `${ABOUT.NAME} - ${ABOUT.JOBTITLE}`,
 })
 useHead({
   htmlAttrs: {

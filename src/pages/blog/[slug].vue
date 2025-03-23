@@ -27,6 +27,19 @@ useSeoMeta({
   title: data.value?.title,
   description: data.value?.description,
   articleModifiedTime: dayjs(data.value?.lastUpdate).toISOString(),
+  ogTitle: data.value?.title,
+  ogDescription: data.value?.description,
+  twitterTitle: data.value?.title,
+  twitterDescription: data.value?.description,
+  twitterCreator: '@alfattarezqa',
+  twitterCard: 'summary_large_image',
+})
+
+defineOgImageComponent('Base', {
+  title: data.value?.title,
+  description: 'Alfatta Rezqa',
+  readingTime,
+  postTime,
 })
 </script>
 

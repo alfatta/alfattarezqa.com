@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { ABOUT } from "./src/constants/about";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -10,13 +11,13 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  site: { url: "alfattarezqa.com", name: "Alfatta Rezqa - Software Developer" },
+  site: { url: "alfattarezqa.com", name: `${ABOUT.NAME} - ${ABOUT.JOBTITLE}` },
 
   sitemap: {
     defaults: {
       lastmod: new Date().toISOString(),
       priority: 0.5,
-      changefreq: "weekly",
+      changefreq: "daily",
     },
   },
 
@@ -26,7 +27,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: ["@nuxtjs/robots", "@nuxtjs/sitemap", "@nuxt/content"],
+  modules: ["@nuxtjs/robots", "@nuxtjs/sitemap", "@nuxt/content", "nuxt-og-image"],
 
   vite: {
     plugins: [tailwindcss()],
