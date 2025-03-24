@@ -51,7 +51,7 @@ defineOgImageComponent('Base', {
 
     <Section title="Latest Blog">
       <template #action>
-        <NuxtLink to="/blog" class="text-xs text-slate-500 hover:text-slate-600">
+        <NuxtLink to="/blog/" class="text-xs text-slate-500 hover:text-slate-600">
           See More →
         </NuxtLink>
       </template>

@@ -55,13 +55,13 @@ defineOgImageComponent('Base', {
       </article>
 
       <div class="grid grid-cols-2 gap-4 mt-12" v-if="surround">
-        <NuxtLink :to="surround[0].path" v-if="surround[0]"
+        <NuxtLink :to="surround[0].path + '/'" v-if="surround[0]"
           class="border border-slate-200 rounded-xl px-4 py-2 hover:bg-slate-50">
           <p class="text-slate-400 text-sm">Previous Post</p>
           <p>{{ surround[0].title }}</p>
         </NuxtLink>
         <div v-else></div>
-        <NuxtLink :to="surround[1].path" v-if="surround[1]"
+        <NuxtLink :to="surround[1].path + '/'" v-if="surround[1]"
           class="border border-slate-200 rounded-xl px-4 py-2 hover:bg-slate-50">
           <p class="text-slate-400 text-right text-sm">Next Post</p>
           <p class="text-right">{{ surround[1].title }}</p>
