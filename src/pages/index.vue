@@ -7,18 +7,20 @@ const { data: blogs } = await useAsyncData(() => {
 })
 
 useSeoMeta({
-  description: ABOUT.DESCRIPTION
+  description: ABOUT.DESCRIPTION,
+  ogTitle: ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
+  ogDescription: ABOUT.DESCRIPTION,
+  ogType: 'website',
+  ogUrl: useSiteConfig().url + useRoute().path,
+  twitterTitle:  ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
+  twitterDescription: ABOUT.DESCRIPTION,
+  twitterCreator: '@alfattarezqa',
+  twitterCard: 'summary_large_image',
 })
 
 defineOgImageComponent('Base', {
   title: 'Alfatta Rezqa',
   description: 'Software Developer',
-  ogTitle: ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
-  ogDescription: ABOUT.DESCRIPTION,
-  twitterTitle:  ABOUT.NAME + ' - ' + ABOUT.JOBTITLE,
-  twitterDescription: ABOUT.DESCRIPTION,
-  twitterCreator: '@alfattarezqa',
-  twitterCard: 'summary_large_image',
 })
 </script>
 

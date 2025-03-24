@@ -29,6 +29,8 @@ useSeoMeta({
   articleModifiedTime: dayjs(data.value?.lastUpdate).toISOString(),
   ogTitle: data.value?.title,
   ogDescription: data.value?.description,
+  ogType: 'article',
+  ogUrl: useSiteConfig().url + useRoute().path,
   twitterTitle: data.value?.title,
   twitterDescription: data.value?.description,
   twitterCreator: '@alfattarezqa',
