@@ -10,6 +10,12 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
+  nitro: {
+    preset: 'cloudflare-pages-static',
+    prerender: {
+      ignore: ["/__nuxt_content/blog/sql_dump"],
+    }
+  },
 
   site: {
     url: "alfattarezqa.com",
