@@ -11,7 +11,11 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
 
-  site: { url: "alfattarezqa.com", name: `${ABOUT.NAME} - ${ABOUT.JOBTITLE}` },
+  site: {
+    url: "alfattarezqa.com",
+    name: `${ABOUT.NAME} - ${ABOUT.JOBTITLE}`,
+    trailingSlash: true,
+  },
 
   sitemap: {
     defaults: {
@@ -19,6 +23,10 @@ export default defineNuxtConfig({
       priority: 0.5,
       changefreq: "daily",
     },
+    exclude: [
+      "/_**",
+      "/__**"
+    ]
   },
 
   imports: {
