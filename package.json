@@ -37,6 +37,9 @@
       "@parcel/watcher",
       "better-sqlite3",
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "vue-demi":"0.14.10"
+    }
   }
 }
