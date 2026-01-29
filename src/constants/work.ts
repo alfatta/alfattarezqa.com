@@ -1,8 +1,13 @@
 export const workExperiences = [
   {
     title: "Senior FrontEnd Developer",
+    company: "Ajaib",
+    date: "Oct 2025 - Present",
+  },
+  {
+    title: "Senior FrontEnd Developer",
     company: "TixFly",
-    date: "Dec 2023 - Present",
+    date: "Dec 2023 - Oct 2025",
   },
   {
     title: "Senior FrontEnd Developer",
