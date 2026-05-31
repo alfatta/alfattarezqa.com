@@ -1,46 +1,21 @@
 {
   "name": "alfattarezqa.com",
-  "private": true,
   "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "better-sqlite3": "^12.6.2",
-    "nuxt": "^3.21.0",
-    "vue": "^3.5.27",
-    "vue-router": "^4.6.4"
-  },
-  "devDependencies": {
-    "@nuxt/content": "^3.11.0",
-    "@nuxtjs/robots": "^5.7.0",
-    "@nuxtjs/sitemap": "^7.6.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.18",
-    "dayjs": "^1.11.19",
-    "nuxt-og-image": "^5.1.13",
-    "remark-reading-time": "^2.0.2",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3",
-    "vue-tsc": "^2.2.12"
-  },
-  "packageManager": "pnpm@8.15.4",
-  "engines": {
-    "node": ">=20",
-    "pnpm": ">=8.15.4"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "better-sqlite3",
-      "esbuild"
-    ],
-    "overrides": {
-      "vue-demi": "0.14.10"
-    }
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^6.4.8",
+    "sharp": "^0.34.3"
   }
 }
