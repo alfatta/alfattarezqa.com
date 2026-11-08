@@ -1,0 +1,62 @@
+---
+import type { WorkExperience } from "../data/profile";
+import ExperienceHeading from "./ExperienceHeading.astro";
+import ExperienceItem from "./ExperienceItem.astro";
+
+interface Props {
+  experiences: WorkExperience[];
+}
+
+const { experiences } = Astro.props;
+const companyGroups = [
+  ...new Set(experiences.map((experience) => experience.company)),
+].map((company) => ({
+  company,
+  roles: experiences.filter((experience) => experience.company === company),
+}));
+---
+
+<ol class="timeline">
+  {companyGroups.map((group) =>
+    group.roles.length === 1 ? (
+      <ExperienceItem experience={group.roles[0]} />
+    ) : (
+      <li class="experience-group">
+        <ExperienceHeading
+          company={group.company}
+          current={group.roles.some((role) => role.current)}
+        />
+        <ol
+          class="timeline experience-roles"
+          aria-label={`Roles at ${group.company}`}
+        >
+          {group.roles.map((experience) => (
+            <ExperienceItem experience={experience} showCompany={false} />
+          ))}
+        </ol>
+      </li>
+    ),
+  )}
+</ol>
+
+<style>
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .experience-group {
+    padding: 25px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .experience-group:first-child {
+    padding-top: 0;
+  }
+  .experience-group:last-child {
+    border: 0;
+    padding-bottom: 0;
+  }
+  .experience-roles {
+    margin-top: 22px;
+  }
+</style>

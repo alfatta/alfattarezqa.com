@@ -1,0 +1,160 @@
+---
+import type { IconName } from "./icons";
+
+interface Props {
+  name?: IconName;
+  class?: string;
+}
+const { name = "chip", class: className, ...attributes } = Astro.props;
+---
+
+<svg
+  {...attributes}
+  class={className}
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  shape-rendering="crispEdges"
+  aria-hidden="true"
+>
+  {name === "monitor" && (
+    <>
+      <path
+        d="M6 5H40V31H6z"
+        fill="var(--blue-deep)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M10 9H36V25H10z" fill="var(--ink)" />
+      <path
+        d="M14 14H19V17H14zM27 14H32V17H27zM19 20H27V22H19z"
+        fill="var(--paper)"
+      />
+      <path
+        d="M19 32H27V37H19zM5 37H41V43H5z"
+        fill="var(--blue)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M9 40H28M33 40H36" stroke="currentColor" stroke-width="2" />
+    </>
+  )}
+  {name === "folder" && (
+    <>
+      <path
+        d="M4 12V8H19L24 13H42V39H4z"
+        fill="var(--blue-deep)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M4 19H44L39 40H4z"
+        fill="var(--blue)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M10 24H36" stroke="var(--paper)" stroke-width="2" />
+    </>
+  )}
+  {name === "code" && (
+    <>
+      <path
+        d="M3 7H45V40H3z"
+        fill="var(--blue)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M3 15H45" stroke="currentColor" stroke-width="2" />
+      <path
+        d="M7 11H9M12 11H14M17 11H19"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M16 22L10 27L16 32M32 22L38 27L32 32M27 20L22 34"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+    </>
+  )}
+  {name === "disk" && (
+    <>
+      <path
+        d="M7 4H35L41 10V43H7z"
+        fill="var(--blue-deep)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M13 4H32V18H13zM13 27H35V43H13z"
+        fill="var(--paper)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M25 7H29V15H25z" fill="currentColor" />
+      <path d="M18 32H30M18 36H30" stroke="var(--line)" stroke-width="2" />
+    </>
+  )}
+  {name === "mail" && (
+    <>
+      <path
+        d="M4 11H43V37H4z"
+        fill="var(--blue-deep)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M4 12L23 27L43 12M4 37L18 24M43 37L29 24"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M11 5H35M16 1H30" stroke="currentColor" stroke-width="2" />
+    </>
+  )}
+  {name === "image" && (
+    <>
+      <path
+        d="M7 3H30L41 14V44H7z"
+        fill="var(--surface)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M30 3V14H41"
+        fill="var(--blue)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M12 20H35V37H12z"
+        fill="var(--blue)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M13 35L21 25L26 31L30 27L35 35" fill="var(--accent)" />
+      <path d="M29 22H32V25H29z" fill="var(--accent)" />
+    </>
+  )}
+  {name === "chip" && (
+    <>
+      <path
+        d="M11 11H37V37H11z"
+        fill="var(--blue-deep)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M17 17H31V31H17z"
+        fill="var(--surface)"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path
+        d="M17 3V10M24 3V10M31 3V10M17 38V45M24 38V45M31 38V45M3 17H10M3 24H10M3 31H10M38 17H45M38 24H45M38 31H45"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <path d="M21 21H27V27H21z" fill="var(--accent)" />
+    </>
+  )}
+</svg>

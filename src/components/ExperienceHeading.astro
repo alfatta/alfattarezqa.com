@@ -1,0 +1,47 @@
+---
+interface Props {
+  company: string;
+  current?: boolean;
+  preview?: boolean;
+}
+
+const { company, current = false, preview = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "experience-heading",
+    { "experience-heading--preview": preview },
+  ]}
+>
+  <h3>{company}</h3>
+  {current && <span class="experience-current">Current</span>}
+</div>
+
+<style>
+  .experience-heading h3 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .experience-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .experience-current {
+    flex: none;
+    padding: 1px 6px;
+    border: 1px solid var(--line);
+    background: var(--blue);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .experience-heading--preview h3 {
+    font-size: 16px;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+</style>

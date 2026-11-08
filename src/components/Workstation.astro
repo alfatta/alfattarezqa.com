@@ -1,0 +1,210 @@
+<div class="workstation">
+  <svg
+    viewBox="0 0 480 400"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    shape-rendering="crispEdges"
+    role="img"
+    aria-label="Pixel-art workstation with a retro computer, code editor, floppy disk, and a coffee mug"
+  >
+    <defs>
+      <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="1" height="1" fill="var(--line)" opacity=".35" />
+      </pattern>
+      <pattern id="vents" width="7" height="5" patternUnits="userSpaceOnUse">
+        <path d="M0 1H4" stroke="var(--ink)" stroke-width="2" />
+      </pattern>
+    </defs>
+    <path d="M55 75H415V340H55z" fill="url(#dots)" />
+    <g stroke="var(--line)" stroke-width="2">
+      <path d="M24 107H77V69H112M366 80H420V121H448M391 277H437V244M39 229H66V266H92" />
+      <path d="M106 38V52M99 45H113M422 180V194M415 187H429M47 308V320M41 314H53" />
+    </g>
+    <g fill="var(--blue)" stroke="var(--ink)" stroke-width="2">
+      <path d="M20 95H36V111H20zM438 119H452V133H438zM430 233H444V247H430z" />
+    </g>
+    <path
+      d="M135 35H305V77H226L216 87V77H135z"
+      fill="var(--surface)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <text
+      x="150"
+      y="53"
+      fill="var(--ink)"
+      font-family="monospace"
+      font-size="10"
+    >
+      ONE PIXEL AT A TIME.
+    </text>
+    <path
+      d="M151 63H161M166 63H176M181 63H191M196 63H206M211 63H221M226 63H236M241 63H251M256 63H289"
+      stroke="var(--accent)"
+      stroke-width="5"
+    />
+    <path
+      d="M106 110H331V120H342V267H331V278H106V267H95V121H106z"
+      fill="var(--ink)"
+    />
+    <path
+      d="M108 113H327V123H338V263H327V274H108V264H99V124H108z"
+      fill="var(--blue-deep)"
+    />
+    <path d="M108 115H326V123H111V258H102V125H108z" fill="var(--surface)" />
+    <path
+      d="M329 124H337V263H326V273H111V265H325V260H329z"
+      fill="var(--accent)"
+      opacity=".5"
+    />
+    <path
+      d="M115 131H313V247H115z"
+      fill="var(--ink)"
+      stroke="var(--ink)"
+      stroke-width="3"
+    />
+    <path d="M122 138H306V239H122z" fill="#193756" />
+    <path d="M123 139H305V153H123z" fill="#8fb4d3" />
+    <path
+      d="M129 145H133M137 145H141M145 145H149"
+      stroke="#193756"
+      stroke-width="3"
+    />
+    <text x="160" y="149" fill="#193756" font-family="monospace" font-size="7">
+      hello-world.ts
+    </text>
+    <path
+      d="M139 168H164M173 168H207M149 182H178M187 182H263M149 196H170M179 196H231M139 210H150"
+      stroke="#a4c9e8"
+      stroke-width="4"
+    />
+    <path d="M151 224H161" stroke="#f8f6ef" stroke-width="5" />
+    <path d="M320 144H328V180H320z" fill="url(#vents)" />
+    <path d="M320 225H326V231H320z" fill="var(--surface)" />
+    <path d="M200 255H230V261H200z" fill="var(--accent)" />
+    <path
+      d="M187 278H255V292H269V300H173V292H187z"
+      fill="var(--blue-deep)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path
+      d="M84 302H353V345H84z"
+      fill="var(--blue-deep)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M87 305H350V311H87z" fill="var(--surface)" />
+    <path d="M98 318H181V331H98z" fill="url(#vents)" />
+    <path
+      d="M233 316H331V331H233z"
+      fill="var(--paper)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M244 323H316" stroke="var(--ink)" stroke-width="3" />
+    <path d="M207 320H214V327H207z" fill="var(--accent)" />
+    <path d="M84 349H353V355H84z" fill="var(--shadow)" />
+    <path
+      d="M108 355H309L333 383H83z"
+      fill="var(--blue-deep)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    {Array.from({ length: 3 }, (_, row) =>
+      Array.from({ length: 14 }, (_, col) => (
+        <path
+          d={`M${111 + col * 13 - row * 5} ${360 + row * 6}h9v3h-9z`}
+          fill="var(--ink)"
+          opacity=".7"
+        />
+      )),
+    )}
+    <path d="M138 379H262" stroke="var(--ink)" stroke-width="3" />
+    <path
+      d="M369 303H402V342H369zM402 310H413V332H402"
+      fill="var(--blue)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M373 306H398" stroke="var(--surface)" stroke-width="3" />
+    <text
+      x="375"
+      y="329"
+      fill="var(--ink)"
+      font-size="12"
+      font-family="monospace"
+    >{`</>`}</text>
+    <path
+      d="M379 293V285H384V276M391 294V279H396V269"
+      stroke="var(--line)"
+      stroke-width="2"
+    />
+    <path
+      d="M364 182H406L414 190V233H364z"
+      fill="var(--blue-deep)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path
+      d="M372 182H399V201H372zM372 211H405V233H372z"
+      fill="var(--paper)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M390 186H395V198H390z" fill="var(--ink)" />
+    <path
+      d="M35 158H68V190H35z"
+      fill="var(--blue)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M43 166H60V182H43z" fill="var(--accent)" />
+    <g stroke="var(--ink)" stroke-width="2">
+      <path d="M41 151V158M49 151V158M57 151V158M41 190V197M49 190V197M57 190V197M28 165H35M28 174H35M28 183H35M68 165H75M68 174H75M68 183H75" />
+    </g>
+    <path d="M28 387H447" stroke="var(--line)" stroke-width="2" />
+    <path
+      d="M350 367H368V373H376V383H344V373H350z"
+      fill="var(--blue)"
+      stroke="var(--ink)"
+      stroke-width="2"
+    />
+    <path d="M360 367V377" stroke="var(--ink)" stroke-width="2" />
+  </svg>
+  <div class="desktop-label">
+    <span>MY LITTLE CORNER OF THE INTERNET</span>
+    <span>⌘ + COFFEE</span>
+  </div>
+</div>
+
+<style>
+  .workstation {
+    position: relative;
+    min-width: 0;
+  }
+  .workstation :global(svg) {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+  .desktop-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    padding: 0 25px;
+  }
+  @media (max-width: 600px) {
+    .workstation {
+      max-width: 420px;
+      width: 100%;
+      margin: auto;
+    }
+    .desktop-label {
+      font-size: 8px;
+    }
+  }
+</style>

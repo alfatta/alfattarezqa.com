@@ -1,0 +1,68 @@
+---
+import PixelIcon from "./PixelIcon.astro";
+import { contacts } from "../data/profile";
+const mail = contacts.find((c) => c.href.startsWith("mailto:"))!;
+---
+
+<section class="contact-banner" aria-label="Get in touch">
+  <PixelIcon name="mail" />
+  <div>
+    <h2>Good things start with a hello.</h2>
+    <p>Have an idea, a question, or just want to talk tech?</p>
+  </div>
+  <a class="button primary" href={mail.href}>
+    Say hello <span aria-hidden="true">↗</span>
+  </a>
+</section>
+
+<style>
+  .contact-banner {
+    margin-block: 64px 38px;
+    background: var(--blue);
+    border: 1px solid var(--line);
+    box-shadow: 4px 4px 0 var(--shadow);
+    padding: 30px 38px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .contact-banner > :global(svg) {
+    width: 70px;
+    height: 70px;
+    flex: none;
+  }
+  .contact-banner h2 {
+    font-size: 38px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .contact-banner p {
+    font-size: 11px;
+  }
+  .contact-banner .button {
+    margin-left: auto;
+    flex: none;
+  }
+  @media (max-width: 900px) {
+    .contact-banner {
+      padding: 26px;
+      gap: 20px;
+    }
+    .contact-banner > :global(svg) {
+      display: none;
+    }
+    .contact-banner h2 {
+      font-size: 34px;
+    }
+  }
+  @media (max-width: 600px) {
+    .contact-banner {
+      flex-wrap: wrap;
+      padding: 25px;
+      margin-top: 45px;
+    }
+    .contact-banner .button {
+      margin-left: 0;
+    }
+  }
+</style>

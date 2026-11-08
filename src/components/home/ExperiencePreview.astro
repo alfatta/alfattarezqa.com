@@ -1,0 +1,161 @@
+---
+import ExperienceHeading from "../ExperienceHeading.astro";
+import type { WorkExperience } from "../../data/profile";
+
+interface Props {
+  experiences: WorkExperience[];
+}
+
+const { experiences } = Astro.props;
+const engineeringExperiences = experiences.filter(
+  (experience) => experience.category === "engineering",
+);
+const featuredExperiences = engineeringExperiences
+  .filter(
+    (experience, index, experiences) =>
+      experiences.findIndex((item) => item.company === experience.company) ===
+      index,
+  )
+  .slice(0, 3);
+---
+
+<section class="section" aria-labelledby="experience-preview-title">
+  <div class="section-title">
+    <div>
+      <span class="label">Experience / a quick look</span>
+      <h2 id="experience-preview-title">Where I've been</h2>
+    </div>
+    <a class="text-link" href="/about/#experience-title">
+      Full experience <span aria-hidden="true">→</span>
+    </a>
+  </div>
+  <div class="window">
+    <div class="window-bar">
+      <span>▤ &nbsp; career.log</span>
+      <span>RECENT COMPANIES</span>
+    </div>
+    <ol class="experience-preview-list">
+      {featuredExperiences.map((experience) => (
+        <li>
+          <a class="experience-preview-row" href="/about/#experience-title">
+            <div class="experience-preview-date">
+              <span>{experience.date}</span>
+              <span>{experience.employmentType}</span>
+            </div>
+            <div class="experience-preview-company">
+              <ExperienceHeading
+                company={experience.company}
+                current={experience.current}
+                preview
+              />
+              <p>{experience.title}</p>
+            </div>
+            <div class="experience-preview-context">
+              <p>{experience.highlights[0]}</p>
+              <span>{experience.technologies.slice(0, 3).join(" / ")}</span>
+            </div>
+            <span class="experience-preview-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .experience-preview-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .experience-preview-list > li + li {
+    border-top: 1px solid var(--line);
+  }
+  .experience-preview-row {
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr) minmax(0, 1.2fr) 20px;
+    align-items: center;
+    gap: 24px;
+    padding: 25px 28px;
+    text-decoration: none;
+    transition: background-color 0.15s;
+  }
+  .experience-preview-row:hover {
+    background: var(--blue);
+  }
+  .experience-preview-row:focus-visible {
+    outline-offset: -4px;
+  }
+  .experience-preview-date {
+    display: grid;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .experience-preview-date > span:first-child {
+    color: var(--ink);
+  }
+  .experience-preview-company p {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .experience-preview-context p {
+    font-size: 11px;
+    line-height: 1.9;
+    color: var(--muted);
+  }
+  .experience-preview-context > span {
+    display: block;
+    margin-top: 8px;
+    font-size: 9px;
+    color: var(--accent);
+  }
+  .experience-preview-arrow {
+    color: var(--accent);
+    transition: transform 0.15s;
+  }
+  .experience-preview-row:hover .experience-preview-arrow {
+    transform: translate(2px, -2px);
+  }
+  @media (max-width: 900px) {
+    .experience-preview-row {
+      grid-template-columns: 115px minmax(0, 1fr) 20px;
+      gap: 12px 20px;
+      padding: 24px;
+    }
+    .experience-preview-context {
+      grid-column: 2;
+    }
+    .experience-preview-arrow {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+  @media (max-width: 600px) {
+    .experience-preview-row {
+      grid-template-columns: minmax(0, 1fr) 20px;
+      align-items: start;
+      gap: 12px;
+      padding: 22px 20px;
+    }
+    .experience-preview-company {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .experience-preview-date {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .experience-preview-context {
+      grid-column: 1 / -1;
+      grid-row: 3;
+    }
+    .experience-preview-arrow {
+      grid-column: 2;
+    }
+  }
+</style>
