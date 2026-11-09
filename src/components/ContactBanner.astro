@@ -1,7 +1,5 @@
 ---
 import PixelIcon from "./PixelIcon.astro";
-import { contacts } from "../data/profile";
-const mail = contacts.find((c) => c.href.startsWith("mailto:"))!;
 ---
 
 <section class="contact-banner" aria-label="Get in touch">
@@ -10,8 +8,8 @@ const mail = contacts.find((c) => c.href.startsWith("mailto:"))!;
     <h2>Good things start with a hello.</h2>
     <p>Have an idea, a question, or just want to talk tech?</p>
   </div>
-  <a class="button primary" href={mail.href}>
-    Say hello <span aria-hidden="true">↗</span>
+  <a class="button primary" href="/contact/">
+    Say hello <span aria-hidden="true">→</span>
   </a>
 </section>
 
