@@ -1,0 +1,81 @@
+---
+import PixelIcon from "../PixelIcon.astro";
+
+interface Props {
+  company: string;
+}
+
+const { company } = Astro.props;
+---
+
+<div class="status-strip">
+  <span class="strip-left">
+    <PixelIcon name="chip" />
+    <span>
+      CURRENTLY BUILDING AT <strong>{company}</strong>
+    </span>
+  </span>
+  <span class="strip-right">A LITTLE CODE. A LOT OF CURIOSITY.</span>
+  <span class="equalizer" aria-hidden="true">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </span>
+</div>
+
+<style>
+  .status-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 11px 18px;
+    border: 1px solid var(--line);
+    background: var(--blue);
+    box-shadow:
+      inset 3px 3px 0 #ffffff35,
+      3px 3px 0 var(--shadow);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .status-strip .strip-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+  }
+  .status-strip :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+  .equalizer {
+    display: flex;
+    height: 17px;
+    align-items: end;
+    gap: 3px;
+  }
+  .equalizer i {
+    background: var(--accent);
+    width: 3px;
+    height: 7px;
+  }
+  .equalizer i:nth-child(2n) {
+    height: 13px;
+  }
+  .equalizer i:nth-child(3n) {
+    height: 17px;
+  }
+  @media (max-width: 600px) {
+    .status-strip {
+      padding: 10px;
+      font-size: 8px;
+      gap: 10px;
+    }
+    .strip-right {
+      display: none;
+    }
+  }
+</style>

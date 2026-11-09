@@ -1,0 +1,160 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import PixRelayVisual from "../components/PixRelayVisual.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import PixelIcon from "../components/PixelIcon.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import ContactBanner from "../components/ContactBanner.astro";
+import { SITE_TITLE } from "../consts";
+import {
+  ABOUT,
+  contacts,
+  projects,
+  techStacks,
+  workExperiences,
+} from "../data/profile";
+
+const engineeringExperiences = workExperiences.filter(
+  (experience) => experience.category === "engineering",
+);
+const teachingExperiences = workExperiences.filter(
+  (experience) => experience.category === "teaching",
+);
+---
+
+<SiteLayout
+  title={`About Alfatta Rezqa | ${SITE_TITLE}`}
+  description={ABOUT.description}
+>
+  <main id="main" class="site-width page-main">
+    <header class="page-heading">
+      <span class="label">Behind the keyboard</span>
+      <h1>
+        Hi, I'm Alfatta Rezqa<span aria-hidden="true">.</span>
+      </h1>
+      <p>{ABOUT.description}</p>
+    </header>
+    <div class="about-grid">
+      <section class="window" aria-labelledby="experience-title">
+        <div class="window-bar">
+          <h2 id="experience-title">Work experience</h2>
+          <span>experience.log</span>
+        </div>
+        <div class="window-content">
+          <ExperienceTimeline experiences={engineeringExperiences} />
+          <a
+            class="text-link experience-source"
+            href="https://www.linkedin.com/in/alfattarezqa/details/experience/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+      <div class="about-sidebar">
+        <section class="window" aria-labelledby="stack-title">
+          <div class="window-bar">
+            <h2 id="stack-title">The toolkit</h2>
+            <span>stack.config</span>
+          </div>
+          <div class="window-content">
+            <PixelIcon class="about-stack-art" name="chip" />
+            <div class="stack-list">
+              {techStacks.map((tech) => (
+                <span>{tech}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section class="window" aria-labelledby="teaching-title">
+          <div class="window-bar">
+            <h2 id="teaching-title">Teaching & mentoring</h2>
+            <span>share.log</span>
+          </div>
+          <div class="window-content">
+            <ExperienceTimeline experiences={teachingExperiences} />
+          </div>
+        </section>
+      </div>
+    </div>
+    <section class="section" aria-labelledby="projects-title">
+      <div class="section-title">
+        <div>
+          <span class="label">Side projects</span>
+          <h2 id="projects-title">On my workbench</h2>
+        </div>
+      </div>
+      {projects.map((project) =>
+        project.id === "pixrelay" ? (
+          <ProjectCard project={project}>
+            <PixRelayVisual slot="visual" />
+          </ProjectCard>
+        ) : (
+          <ProjectCard project={project} />
+        ),
+      )}
+    </section>
+    <section class="section" aria-labelledby="elsewhere-title">
+      <div class="section-title">
+        <div>
+          <span class="label">Around the internet</span>
+          <h2 id="elsewhere-title">Let's stay connected</h2>
+        </div>
+      </div>
+      <div class="hero-actions">
+        {contacts.map((contact) => (
+          <a
+            class="button"
+            href={contact.href}
+            target={contact.href.startsWith("mailto:") ? undefined : "_blank"}
+            rel="noreferrer"
+          >
+            {contact.label}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+    <ContactBanner />
+  </main>
+</SiteLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 25px;
+  }
+  .about-sidebar {
+    display: grid;
+    gap: 25px;
+    min-width: 0;
+  }
+  .experience-source {
+    margin-top: 25px;
+  }
+  .stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stack-list span {
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    background: var(--blue);
+    font-size: 11px;
+  }
+  .about-stack-art {
+    width: 95px;
+    height: 95px;
+    display: block;
+    margin: 0 auto 25px;
+  }
+  @media (max-width: 600px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

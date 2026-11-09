@@ -1,0 +1,225 @@
+---
+import PixelIcon from "./PixelIcon.astro";
+const pathname = Astro.url.pathname;
+---
+
+<a class="skip-link" href="#main">
+  Skip to content
+</a>
+<header class="site-header">
+  <nav class="site-width nav" aria-label="Main navigation">
+    <a class="brand" href="/">
+      <PixelIcon name="monitor" class="brand-icon" />
+      <span>
+        alfatta.rezqa<small>SOFTWARE DEVELOPER</small>
+      </span>
+    </a>
+    <div class="nav-links">
+      {[
+        ["/", "Home"],
+        ["/blog/", "Blog"],
+        ["/about/", "About"],
+      ].map(([href, label]) => (
+        <a
+          class="nav-link"
+          href={href}
+          aria-current={
+            (href === "/" ? pathname === "/" : pathname.startsWith(href))
+              ? "page"
+              : undefined
+          }
+        >
+          {label}
+        </a>
+      ))}
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+        title="Toggle dark mode"
+      >
+        <svg
+          class="light-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M16 3H9V6H6V9H3V16H6V19H9V21H16V18H19V15H13V12H10V6H16Z" />
+        </svg>
+        <svg
+          class="dark-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M8 8H16V16H8ZM12 1V5M12 19V23M1 12H5M19 12H23M3 3L6 6M18 18L21 21M3 21L6 18M18 6L21 3" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const preference = window.matchMedia("(prefers-color-scheme: dark)");
+  const sync = () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    toggle?.setAttribute("aria-pressed", String(dark));
+    toggle?.setAttribute(
+      "aria-label",
+      dark ? "Switch to light mode" : "Switch to dark mode",
+    );
+    toggle?.setAttribute(
+      "title",
+      dark ? "Switch to light mode" : "Switch to dark mode",
+    );
+  };
+  toggle?.addEventListener("click", () => {
+    const theme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+    sync();
+  });
+  preference.addEventListener("change", (event) => {
+    try {
+      if (localStorage.getItem("theme")) return;
+    } catch {}
+    document.documentElement.dataset.theme = event.matches ? "dark" : "light";
+    sync();
+  });
+  sync();
+</script>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: relative;
+    z-index: 10;
+  }
+  .nav {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+  }
+  .brand small {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .nav-link {
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-link[aria-current="page"] {
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+  .nav-link:hover {
+    color: var(--accent);
+    border-color: var(--line);
+  }
+  .theme-toggle {
+    background: var(--surface);
+    border: 1px solid var(--ink);
+    width: 37px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    box-shadow: 2px 2px 0 var(--shadow);
+  }
+  .theme-toggle svg {
+    width: 19px;
+    height: 19px;
+  }
+  .dark-icon,
+  :global([data-theme="dark"]) .light-icon {
+    display: none;
+  }
+  :global([data-theme="dark"]) .dark-icon {
+    display: block;
+  }
+  .skip-link {
+    position: fixed;
+    top: -100px;
+    left: 15px;
+    padding: 12px;
+    background: var(--surface);
+    z-index: 100;
+  }
+  .skip-link:focus {
+    top: 10px;
+  }
+  @media (max-width: 600px) {
+    .nav {
+      min-height: 90px;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-block: 15px;
+    }
+    .brand {
+      font-size: 13px;
+      gap: 8px;
+    }
+    .brand small {
+      font-size: 8px;
+    }
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+    }
+    .nav-links {
+      gap: 17px;
+    }
+    .nav-link {
+      font-size: 10px;
+    }
+    .theme-toggle {
+      width: 31px;
+      height: 31px;
+    }
+  }
+  @media (max-width: 370px) {
+    .nav-links {
+      gap: 12px;
+    }
+    .brand small {
+      display: none;
+    }
+    .brand {
+      font-size: 12px;
+    }
+  }
+</style>

@@ -1,0 +1,122 @@
+---
+import Workstation from "../Workstation.astro";
+---
+
+<section class="hero" aria-labelledby="intro-title">
+  <div>
+    <p class="eyebrow">
+      <span class="status-dot"></span> Hello, world. I'm Alfatta Rezqa.
+    </p>
+    <h1 id="intro-title">
+      BUILDING
+      <br />
+      THINGS FOR
+      <br />
+      <span>THE WEB.</span>
+    </h1>
+    <p class="hero-intro">
+      A software developer turning ideas into thoughtful digital experiences.
+      <br />A frontend focus. A full-stack curiosity.
+      <br />
+      <strong>And a soft spot for the details.</strong>
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" href="#work">
+        Explore my work <span aria-hidden="true">↘</span>
+      </a>
+      <a class="button" href="/about/">
+        About me <span aria-hidden="true">⌘</span>
+      </a>
+    </div>
+    <p class="hero-note">
+      <span class="pixel-heart" aria-hidden="true">
+        ♥
+      </span>{" "}
+      8+ years of building, learning & shipping.
+    </p>
+  </div>
+  <Workstation />
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.06fr 1fr;
+    align-items: center;
+    gap: 22px;
+    padding-block: 62px 44px;
+  }
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--blue);
+    flex: none;
+  }
+  .hero h1 {
+    font-size: clamp(68px, 8vw, 104px);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    margin: 25px 0 24px;
+  }
+  .hero h1 span {
+    color: var(--accent);
+  }
+  .hero-intro {
+    max-width: 420px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .hero-intro strong {
+    color: var(--accent);
+  }
+  .hero-note {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 9px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .pixel-heart {
+    font-size: 17px;
+    color: var(--accent);
+  }
+  @media (min-width: 1300px) {
+    .hero {
+      padding-block: 75px 60px;
+    }
+    .hero h1 {
+      font-size: 104px;
+    }
+  }
+  @media (max-width: 900px) {
+    .hero {
+      gap: 0;
+    }
+    .hero h1 {
+      font-size: 76px;
+    }
+    .hero-intro {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 600px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-block: 36px 26px;
+      gap: 25px;
+    }
+    .hero h1 {
+      font-size: clamp(62px, 18vw, 80px);
+      margin: 22px 0;
+    }
+    .hero-intro {
+      max-width: 350px;
+    }
+    .hero-note {
+      margin-top: 20px;
+    }
+  }
+</style>

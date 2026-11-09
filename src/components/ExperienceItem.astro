@@ -1,0 +1,138 @@
+---
+import ExperienceHeading from "./ExperienceHeading.astro";
+import type { WorkExperience } from "../data/profile";
+
+interface Props {
+  experience: WorkExperience;
+  showCompany?: boolean;
+}
+
+const { experience, showCompany = true } = Astro.props;
+---
+
+<li
+  class:list={["experience-item", { "experience-item--grouped": !showCompany }]}
+>
+  {showCompany ? (
+    <ExperienceHeading
+      company={experience.company}
+      current={experience.current}
+    />
+  ) : (
+    <div class="experience-heading">
+      <h4>{experience.title}</h4>
+    </div>
+  )}
+  {showCompany && <p class="experience-role">{experience.title}</p>}
+  <p class="experience-meta">
+    <span>
+      {experience.date} · {experience.employmentType}
+    </span>
+    <span>
+      {experience.location}
+      {experience.workMode && ` · ${experience.workMode}`}
+    </span>
+  </p>
+  <ul class="experience-highlights">
+    {experience.highlights.map((highlight) => (
+      <li>{highlight}</li>
+    ))}
+  </ul>
+  <ul
+    class="experience-technologies"
+    aria-label={`Technologies at ${experience.company}`}
+  >
+    {experience.technologies.map((technology) => (
+      <li>{technology}</li>
+    ))}
+  </ul>
+  {experience.links && (
+    <div class="experience-links">
+      {experience.links.map((link) => (
+        <a class="text-link" href={link.href} target="_blank" rel="noreferrer">
+          {link.label} <span aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  )}
+</li>
+
+<style>
+  .experience-item {
+    padding: 25px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .experience-item:first-child {
+    padding-top: 0;
+  }
+  .experience-item:last-child {
+    border: 0;
+    padding-bottom: 0;
+  }
+  .experience-item p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .experience-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .experience-heading h4 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .experience-item--grouped {
+    padding: 0;
+    border: 0;
+  }
+  .experience-item--grouped + .experience-item--grouped {
+    margin-top: 28px;
+  }
+  .experience-item .experience-role {
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.7;
+  }
+  .experience-item .experience-meta {
+    display: grid;
+    gap: 2px;
+    font-size: 10px;
+    line-height: 1.8;
+  }
+  .experience-highlights {
+    margin: 15px 0;
+    padding-left: 17px;
+    list-style: square;
+    font-size: 12px;
+    line-height: 1.85;
+    color: var(--muted);
+  }
+  .experience-highlights > li + li {
+    margin-top: 7px;
+  }
+  .experience-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .experience-technologies > li {
+    border: 1px solid var(--line);
+    background: var(--blue);
+    padding: 2px 7px;
+    font-size: 9px;
+  }
+  .experience-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 16px;
+  }
+</style>

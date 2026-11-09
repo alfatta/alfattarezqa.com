@@ -1,0 +1,60 @@
+---
+import Hero from "../components/home/Hero.astro";
+import CurrentWork from "../components/home/CurrentWork.astro";
+import AboutPreview from "../components/home/AboutPreview.astro";
+import ExperiencePreview from "../components/home/ExperiencePreview.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import ContactBanner from "../components/ContactBanner.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
+import { SITE_DESCRIPTION } from "../consts";
+import { workExperiences, featuredProject } from "../data/profile";
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+const currentExperience = workExperiences.find(
+  (experience) => experience.category === "engineering" && experience.current,
+);
+---
+
+<SiteLayout
+  title="Alfatta Rezqa — Frontend & Software Developer"
+  description={SITE_DESCRIPTION}
+>
+  <main id="main" class="site-width">
+    <Hero />
+    {currentExperience && <CurrentWork company={currentExperience.company} />}
+    <AboutPreview />
+    <ExperiencePreview experiences={workExperiences} />
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="section-title">
+        <div>
+          <span class="label">From the day job</span>
+          <h2 id="work-title">Featured work</h2>
+        </div>
+        <span class="eyebrow" aria-hidden="true">
+          01 / PROFESSIONAL WORK
+        </span>
+      </div>
+      <ProjectCard project={featuredProject} />
+    </section>
+    <section class="section" aria-labelledby="notes-title">
+      <div class="section-title">
+        <div>
+          <span class="label">Notes from the keyboard</span>
+          <h2 id="notes-title">Bits & thoughts</h2>
+        </div>
+        <a class="text-link" href="/blog/">
+          All posts <span>→</span>
+        </a>
+      </div>
+      <div class="post-grid">
+        {posts.map((post, index) => (
+          <PostCard post={post} index={index} />
+        ))}
+      </div>
+    </section>
+    <ContactBanner />
+  </main>
+</SiteLayout>

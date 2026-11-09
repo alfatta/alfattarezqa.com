@@ -1,0 +1,49 @@
+---
+import { contacts } from "../data/profile";
+---
+
+<footer class="site-width site-footer">
+  <p>
+    © {new Date().getFullYear()} Alfatta Rezqa. Built with care & a little
+    nostalgia.
+  </p>
+  <div class="footer-links">
+    {contacts
+      .filter((c) => ["LinkedIn", "X", "Mail"].includes(c.label))
+      .map((c) => (
+        <a
+          href={c.href}
+          target={c.href.startsWith("mailto:") ? undefined : "_blank"}
+          rel="noreferrer"
+        >
+          {c.label} ↗
+        </a>
+      ))}
+    <a href="/rss.xml">RSS ↗</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 22px 30px;
+    font-size: 9px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    text-decoration: none;
+  }
+  @media (max-width: 600px) {
+    .site-footer {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
