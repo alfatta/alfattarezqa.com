@@ -1,0 +1,208 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import PixelIcon from "../components/PixelIcon.astro";
+import { SITE_TITLE } from "../consts";
+import { ABOUT, contacts } from "../data/profile";
+
+const mail = contacts.find((contact) => contact.href.startsWith("mailto:"))!;
+const socials = contacts.filter((contact) => contact.href.startsWith("https://"));
+---
+
+<SiteLayout
+  title={`Contact Alfatta Rezqa | ${SITE_TITLE}`}
+  description="Get in touch with Alfatta Rezqa by email, or connect on LinkedIn, GitHub, Instagram, and X. Let's talk about software, ideas, and collaboration."
+>
+  <main id="main" class="site-width page-main contact-page">
+    <header class="page-heading">
+      <span class="label">A conversation starts here</span>
+      <h1>Let's talk<span aria-hidden="true">.</span></h1>
+      <p>
+        Have a project in mind, a question about my work, or just want to talk
+        tech? Here's where you can find me.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+      <section class="window email-window" aria-labelledby="email-title">
+        <div class="window-bar">
+          <h2 id="email-title">Send a hello</h2>
+          <span aria-hidden="true">hello.mail</span>
+        </div>
+        <div class="window-content email-content">
+          <PixelIcon name="mail" class="contact-icon" />
+          <div class="contact-identity">
+            <p class="contact-name">{ABOUT.name}</p>
+            <p>{ABOUT.jobTitle}</p>
+          </div>
+          <p class="email-intro">
+            Good things start with a hello. Drop me an email and let's take it
+            from there.
+          </p>
+          <a class="email-address" href={mail.href}>{mail.handle}</a>
+          <a class="button primary" href={mail.href}>
+            Write an email <span aria-hidden="true">↗</span>
+          </a>
+          <p class="email-note">Opens your email app. No forms, just a conversation.</p>
+        </div>
+      </section>
+
+      <section class="window social-window" aria-labelledby="social-title">
+        <div class="window-bar">
+          <h2 id="social-title">Around the internet</h2>
+          <span aria-hidden="true">social.links</span>
+        </div>
+        <div class="window-content social-content">
+          <p class="social-intro">Connect, follow along, or see what I'm working on.</p>
+          <ul class="social-list">
+            {socials.map((contact) => (
+              <li>
+                <a class="social-link" href={contact.href} target="_blank" rel="noreferrer">
+                  <div class="social-heading">
+                    <h3>{contact.label}</h3>
+                    <span aria-hidden="true">↗</span>
+                  </div>
+                  <span class="social-handle">@{contact.handle}</span>
+                  <p>{contact.description}</p>
+                  <span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="contact-signoff">
+      <PixelIcon name="monitor" class="signoff-icon" />
+      <p>Until then, see you around the internet.</p>
+      <a class="text-link" href="/about/">A little about me <span aria-hidden="true">→</span></a>
+    </div>
+  </main>
+</SiteLayout>
+
+<style>
+  .contact-page {
+    padding-bottom: 38px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 25px;
+  }
+  .email-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .contact-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .contact-identity {
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .contact-name {
+    color: var(--ink);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .email-intro,
+  .social-intro {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .email-address {
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  .email-address:hover {
+    color: var(--accent);
+  }
+  .email-note {
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .social-content {
+    display: grid;
+    gap: 24px;
+  }
+  .social-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .social-link {
+    display: block;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .social-link:hover {
+    background: var(--blue);
+  }
+  .social-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .social-heading h3 {
+    font-size: 14px;
+  }
+  .social-handle {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+  .social-link p {
+    margin-top: 12px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .contact-signoff {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 38px;
+    padding: 20px 0;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .signoff-icon {
+    width: 34px;
+    height: 34px;
+    flex: none;
+  }
+  .contact-signoff .text-link {
+    margin-left: auto;
+  }
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .social-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .window-content {
+      padding: 24px;
+    }
+    .contact-signoff .text-link {
+      margin-left: 0;
+    }
+  }
+</style>

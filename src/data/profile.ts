@@ -240,8 +240,34 @@ export const projects: Project[] = [
 ];
 
 export const contacts = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/alfattarezqa" },
-  { label: "Instagram", href: "https://instagram.com/alfattarezqa" },
-  { label: "X", href: "https://x.com/alfattarezqa" },
-  { label: "Mail", href: "mailto:hi@alfattarezqa.com" },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/alfattarezqa",
+    handle: "alfattarezqa",
+    description: "Work, experience, and professional connections.",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/alfatta",
+    handle: "alfatta",
+    description: "Code, side projects, and things I'm building.",
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/alfattarezqa",
+    handle: "alfattarezqa",
+    description: "A little life beyond the keyboard.",
+  },
+  {
+    label: "X",
+    href: "https://x.com/alfattarezqa",
+    handle: "alfattarezqa",
+    description: "Thoughts, updates, and conversations.",
+  },
+  {
+    label: "Mail",
+    href: "mailto:hi@alfattarezqa.com",
+    handle: "hi@alfattarezqa.com",
+    description: "For ideas, questions, and a simple hello.",
+  },
 ];
